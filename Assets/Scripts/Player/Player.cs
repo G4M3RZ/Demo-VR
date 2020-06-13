@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
+    [Range(0, 10)]
+    public float _carSpeed, _wheelLimit;
+
     private GetCamRot _cam;
     List<GameObject> _wheels;
-    [Range(0,10)]
-    public float _carSpeed;
 
     private void Start()
     {
@@ -21,17 +22,34 @@ public class Player : MonoBehaviour
 
     private void Update()
     {
-        SetRot(-_cam._camRotZ * Time.deltaTime * 5);
+        SetRot(-_cam._camRotZ * Time.deltaTime * 5, _wheelLimit * 3);
+        SetCarSpeed();
+        StopDetection();
     }
-    void SetRot(float _camRot) 
+    void SetRot(float _camRot, float limit) 
     {
-        //Car
         transform.Rotate(0, _camRot, 0);
 
-        //Wheels
         for (int i = 0; i < _wheels.Count; i++)
         {
-            _wheels[i].transform.Rotate(0, -_carSpeed, 0);
+            Vector3 wheelRot = _wheels[i].transform.localEulerAngles;
+            float wheelLimit = Mathf.Clamp(_cam._camRotZ, -limit, limit);
+
+            if (i < 2)
+                _wheels[i].transform.localEulerAngles = new Vector3(0, 0 - wheelLimit, wheelRot.z);
+            else
+                _wheels[i].transform.localEulerAngles = new Vector3(0, 0, wheelRot.z);
+
+            _wheels[i].transform.Rotate(0, 0, -_carSpeed);
         }
+    }
+
+    void SetCarSpeed()
+    {
+
+    }
+    void StopDetection()
+    {
+
     }
 }
