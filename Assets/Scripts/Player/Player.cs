@@ -51,10 +51,11 @@ public class Player : MonoBehaviour
     }
     void SetCarSpeed()
     {
-        _rgb.velocity = transform.forward * _currentSpeed * Time.deltaTime * 100;
+        if (!_stopCar)
+            _rgb.velocity = transform.forward * _currentSpeed * Time.deltaTime * 100;
 
-        if(_stopCar)
-            _currentSpeed = (_currentSpeed > 0) ? _currentSpeed -= Time.deltaTime * 20 : _currentSpeed = 0;
+        if (_stopCar)
+            _currentSpeed = (_currentSpeed > 0) ? _currentSpeed -= Time.deltaTime * 15 : _currentSpeed = 0;
         else
             _currentSpeed = (_currentSpeed < _carSpeed) ? _currentSpeed += Time.deltaTime * 5 : _currentSpeed = _carSpeed;
     }
