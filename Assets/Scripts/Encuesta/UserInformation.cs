@@ -1,37 +1,36 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
-using TMPro;
 using UnityEngine;
 
 public class UserInformation : MonoBehaviour
 {
-    List<TMP_InputField> _fields;
-    private bool _done, _InfoComplete;
+    [HideInInspector]
+    public List<bool> _doneInfo;
+    public List<string> _info;
+
+    private bool _InfoComplete;
     private GameObject _text;
     private Swipe _swipe;
 
     private void Start()
     {
-        _fields = new List<TMP_InputField>();
+        _doneInfo = new List<bool>();
         for (int i = 1; i < transform.childCount - 1; i++)
-        {
-            _fields.Add(transform.GetChild(i).GetComponent<TMP_InputField>());
-        }
+            _doneInfo.Add(false);
+
         _text = transform.GetChild(transform.childCount - 1).GetChild(1).gameObject;
         _swipe = transform.GetComponentInParent<Swipe>();
     }
     private void Update()
     {
-        for (int i = 0; i < _fields.Count; i++)
+        for (int i = 0; i < _doneInfo.Count; i++)
         {
-            if(_fields[i].text == "")
+            if(!_doneInfo[i])
             {
-                _InfoComplete = _done = false; break;
+                _InfoComplete = false; break;
             }
-            else
-                _done = true;
 
-            if (i == _fields.Count - 1 && _done)
+            if (_doneInfo[_doneInfo.Count - 1])
                 _InfoComplete = true;
         }
     }

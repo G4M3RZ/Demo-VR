@@ -9,6 +9,9 @@ EditorBuildSettings:
     path: Assets/Scenes/Encuesta.unity
     guid: bb17aae6da302f647820277e5d831c1a
   - enabled: 1
+    path: Assets/Scenes/PreloadScene.unity
+    guid: 6dbd90bfe299bc846835c094fe04cd3a
+  - enabled: 1
     path: Assets/Scenes/Demo VR.unity
     guid: 9fc0d4010bbf28b4594072e72b8655ab
   m_configObjects: {}
