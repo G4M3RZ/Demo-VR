@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class UserInformation : MonoBehaviour
@@ -15,9 +14,12 @@ public class UserInformation : MonoBehaviour
     private void Start()
     {
         _doneInfo = new List<bool>();
+        _info = new List<string>();
         for (int i = 1; i < transform.childCount - 1; i++)
+        {
             _doneInfo.Add(false);
-
+            _info.Add("");
+        }
         _text = transform.GetChild(transform.childCount - 1).GetChild(1).gameObject;
         _swipe = transform.GetComponentInParent<Swipe>();
     }
@@ -41,7 +43,12 @@ public class UserInformation : MonoBehaviour
     public void NextButton()
     {
         if (_InfoComplete)
+        {
+            //Enviar Informacion
+
+            //Si la Informacion se manda:
             _swipe._next = true;
+        }
         else
             _text.SetActive(true);
     }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using TMPro;
+﻿using TMPro;
 using UnityEngine;
 
 public class ArkController : MonoBehaviour
@@ -13,12 +11,8 @@ public class ArkController : MonoBehaviour
         _txt = transform.GetChild(0).GetChild(2).GetComponent<TextMeshPro>();
         _txt.text = _question;
     }
-
-    private void OnTriggerEnter(Collider other)
+    public void DestroyThisObject()
     {
-        if (other.CompareTag("GameController"))
-        {
-
-        }
+        Destroy(this.gameObject, 2f);
     }
 }

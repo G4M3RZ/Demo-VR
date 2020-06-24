@@ -15,7 +15,6 @@ public class SelectGender : MonoBehaviour
     public void GenderButton(int buttonNum)
     {
         _playerMaterial.color = _gender[buttonNum];
-
         _pm.SetIconSelection(buttonNum, _selectIcon, this.gameObject.transform);
     }
 }

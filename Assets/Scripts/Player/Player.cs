@@ -14,7 +14,8 @@ public class Player : MonoBehaviour
     List<GameObject> _wheels;
 
     private Rigidbody _rgb;
-    private float _currentSpeed;
+    [HideInInspector]
+    public float _currentSpeed;
     private bool _stopCar;
 
     private void Start()
@@ -32,7 +33,6 @@ public class Player : MonoBehaviour
     {
         float carRot = Mathf.Clamp(-_cam._camRotZ, -_limitCarRot, _limitCarRot);
         SetRot(carRot * Time.deltaTime * 5, _wheelLimit * 3);
-
         SetCarSpeed();
         StopDetection(transform.position);
     }

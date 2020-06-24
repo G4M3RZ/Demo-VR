@@ -14,7 +14,7 @@ public class Swipe : MonoBehaviour
     {
         _panels = new List<GameObject>();
         _newPos = new List<Vector2>();
-        for (int i = 1; i < transform.childCount; i++)
+        for (int i = 0; i < transform.childCount - 1; i++)
         {
             _panels.Add(transform.GetChild(i).gameObject);
             _newPos.Add(_panels[i].transform.localPosition);
