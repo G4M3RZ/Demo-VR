@@ -1,22 +1,33 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
+using UnityEngine;
 
 public class ParticlesValues : MonoBehaviour
 {
-    private ParticleSystem _particles;
-    private Player _player;
-    [Range(0,20)]
+    [Range(0, 20)]
     public float _maxRateValue;
+
+    List<ParticleSystem> _ps;
+    private Player _player;
 
     private void Start()
     {
-        _particles = GetComponent<ParticleSystem>();
+        _ps = new List<ParticleSystem>();
+
+        for (int i = 0; i < transform.childCount; i++)
+        {
+            _ps.Add(transform.GetChild(i).GetComponent<ParticleSystem>());
+            var emission = _ps[i].emission;
+            emission.rateOverTime = 0;
+        }
+
         _player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
-        var emission = _particles.emission;
-        emission.rateOverTime = 0;
     }
     private void Update()
     {
-        var emission = _particles.emission;
-        emission.rateOverTime = Mathf.Clamp(_player._currentSpeed * 10, 0, _maxRateValue * 10);
+        for (int i = 0; i < _ps.Count; i++)
+        {
+            var emission = _ps[i].emission;
+            emission.rateOverTime = Mathf.Clamp(_player._currentSpeed * 10, 0, _maxRateValue * 10);
+        }
     }
 }

@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Player : MonoBehaviour
 {
-    [Range(0, 30)]
+    [Range(0,20)]
     public float _carSpeed, _limitCarRot, _wheelLimit;
     [Range(0,4)]
     public float _rayForward, _rayDown;

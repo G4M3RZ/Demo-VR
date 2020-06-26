@@ -15,7 +15,7 @@ public class PlayerModifier : MonoBehaviour
 
     public void SetIconSelection(int buttonNum, GameObject icon, Transform section)
     {
-        for (int i = 0; i < section.childCount; i++)
+        for (int i = 1; i < section.childCount; i++)
         {
             if (i != buttonNum)
             {

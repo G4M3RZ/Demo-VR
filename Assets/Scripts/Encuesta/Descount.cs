@@ -30,7 +30,11 @@ public class Descount : MonoBehaviour
 
     public void ActiveButton()
     {
-        if(PlayerPrefs.GetInt("Descount") == 1)
-            _active = !_active;
+        _active = !_active;
+    }
+    public void RaceDescount()
+    {
+        PlayerPrefs.SetInt("Descount", 0);
+        PlayerPrefs.Save();
     }
 }

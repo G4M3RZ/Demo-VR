@@ -12,6 +12,6 @@ public class SelectParticles : MonoBehaviour
     public void ParticleButton(int particle)
     {
         PlayerPrefs.SetInt("CarFX", particle);
-        _pm.SetIconSelection(particle, _selectIcon, this.gameObject.transform);
+        _pm.SetIconSelection(particle + 1, _selectIcon, this.gameObject.transform);
     }
 }
