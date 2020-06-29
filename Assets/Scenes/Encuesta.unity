@@ -681,6 +681,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 117220700}
+  - component: {fileID: 117220701}
   m_Layer: 5
   m_Name: Wheels
   m_TagString: Untagged
@@ -711,6 +712,20 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &117220701
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 117220699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d454187404947df458bf8cb211319dda, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _selectIcon: {fileID: 298496206789483092, guid: 4ccb57b1c38358648ab0664ed898deb2,
+    type: 3}
 --- !u!1 &123024802
 GameObject:
   m_ObjectHideFlags: 0
@@ -4364,7 +4379,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1302756003}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117220701}
+        m_MethodName: Wheel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 1
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1302756003
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4384,8 +4410,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d60ac4d1232f24cfd9193c9724ed0185, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: -1667665395680375805, guid: aec7a4c0ef7cd2f44ab4350f287eefbf,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -5909,7 +5936,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1825714945}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117220701}
+        m_MethodName: Wheel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1825714945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5929,8 +5967,9 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d60ac4d1232f24cfd9193c9724ed0185, type: 3}
-  m_Type: 1
+  m_Sprite: {fileID: 2899515348881291353, guid: aec7a4c0ef7cd2f44ab4350f287eefbf,
+    type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -6520,7 +6559,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1960533052}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 117220701}
+        m_MethodName: Wheel
+        m_Mode: 3
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 2
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1960533052
 MonoBehaviour:
   m_ObjectHideFlags: 0

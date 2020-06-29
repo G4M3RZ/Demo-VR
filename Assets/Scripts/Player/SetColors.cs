@@ -12,5 +12,6 @@ public class SetColors : MonoBehaviour
     {
         _materials[0].SetColor("_Color", _character[PlayerPrefs.GetInt(_colorNames[0])]);
         _materials[1].SetColor("_Color", _car[PlayerPrefs.GetInt(_colorNames[1])]);
+        Destroy(this);
     }
 }

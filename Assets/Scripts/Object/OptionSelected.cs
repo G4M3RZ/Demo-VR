@@ -1,14 +1,18 @@
-﻿using UnityEngine;
+﻿using TMPro;
+using UnityEngine;
 
 public class OptionSelected : MonoBehaviour
 {
+    public string _anwser;
     private WinCondition _wc;
     private ArkController _ark;
-    public string _anwser;
+    private TextMeshPro _text;
     private void Start()
     {
         _wc = GetComponentInParent<WinCondition>();
         _ark = GetComponentInParent<ArkController>();
+        _text = transform.GetChild(0).GetComponent<TextMeshPro>();
+        _text.text = _anwser;
     }
     private void OnTriggerEnter(Collider other)
     {
