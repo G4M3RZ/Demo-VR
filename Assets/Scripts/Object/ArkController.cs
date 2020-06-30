@@ -8,7 +8,8 @@ public class ArkController : MonoBehaviour
 
     private void Start()
     {
-        _txt = transform.GetChild(0).GetChild(2).GetComponent<TextMeshPro>();
+        Transform child = transform.GetChild(0);
+        _txt = child.GetChild(child.childCount - 1).GetComponent<TextMeshPro>();
         _txt.text = _question;
     }
     public void DestroyThisObject()

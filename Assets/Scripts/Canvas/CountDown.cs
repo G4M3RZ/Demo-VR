@@ -31,18 +31,17 @@ public class CountDown : MonoBehaviour
     {
         _startCount = false;
 
-        for (int i = 0; i < 3; i++)
+        for (int i = 0; i < _message.Length; i++)
         {
             yield return new WaitForSeconds(1.5f);
             _text.text = _message[i];
 
-            if (i < 2)
+            if (i < _message.Length - 1)
                 _music.clip = _sounds[0];
             else
                 _music.clip = _sounds[1];
 
             _music.Play();
-
         }
         _player.enabled = true;
         yield return new WaitForSeconds(2f);
