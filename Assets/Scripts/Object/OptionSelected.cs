@@ -19,6 +19,8 @@ public class OptionSelected : MonoBehaviour
         if (other.CompareTag("Player"))
         {
             _wc._answers.Add(_anwser);
+            BoxCollider collider = GetComponent<BoxCollider>();
+            collider.enabled = false;
             _ark.DestroyThisObject();
         }
     }

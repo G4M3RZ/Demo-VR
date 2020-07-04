@@ -6,7 +6,13 @@ public class SlowMotion : MonoBehaviour
     [Range(0,1)]
     public float _Speed;
     private AudioSource _music;
+    private Player _player;
 
+    private void Start()
+    {
+        _music = GetComponent<AudioSource>();
+        _player = GetComponent<Player>();
+    }
     private void Update()
     {
         if (_music != null)
@@ -30,6 +36,9 @@ public class SlowMotion : MonoBehaviour
             Time.timeScale += (1f * slowVelocity) * Time.unscaledDeltaTime;
             Time.timeScale = Mathf.Clamp(Time.timeScale, 0f, 1f);
         }
+
+        _music.pitch = Time.timeScale;
+        _music.volume = Mathf.Clamp(_player._currentSpeed / _player._carSpeed, 0, 0.6f);
     }
     private void OnTriggerEnter(Collider other)
     {

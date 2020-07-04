@@ -4,17 +4,22 @@ using UnityEngine;
 
 public class SetWheels : MonoBehaviour
 {
-    public GameObject[] _wheels;
-    List<GameObject> _place;
+    List<Material> _wheelsMat;
+    public Texture[] _sprites, _normals;
 
     private void Start()
     {
-        _place = new List<GameObject>();
-        
+        _wheelsMat = new List<Material>();
+        int num = PlayerPrefs.GetInt("Wheels");
+
         for (int i = 0; i < transform.childCount; i++)
         {
-            _place.Add(transform.GetChild(i).GetChild(0).gameObject);
-            GameObject newWheel = Instantiate(_wheels[PlayerPrefs.GetInt("Wheels")], _place[i].transform);
+            _wheelsMat.Add(transform.GetChild(i).GetChild(0).GetChild(0).GetComponent<MeshRenderer>().material);
+
+            _wheelsMat[i].SetTexture("_MainTex", _sprites[num]);
+            _wheelsMat[i].SetTexture("_BumpMap", _normals[num]);
+            _wheelsMat[i].SetTexture("_ParallaxMap", _sprites[num]);
+            _wheelsMat[i].SetTexture("_OcclusionMap", _sprites[num]);
         }
         Destroy(this);
     }
