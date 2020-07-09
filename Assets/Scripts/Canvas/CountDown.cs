@@ -7,7 +7,7 @@ public class CountDown : MonoBehaviour
 {
     public bool _startCount;
     private TextMeshProUGUI _text;
-    public string[] _message;
+    public List<string> _message;
     private Player _player;
 
     public AudioClip[] _sounds;
@@ -31,12 +31,12 @@ public class CountDown : MonoBehaviour
     {
         _startCount = false;
 
-        for (int i = 0; i < _message.Length; i++)
+        for (int i = 0; i < _message.Count; i++)
         {
             yield return new WaitForSeconds(1.5f);
             _text.text = _message[i];
 
-            if (i < _message.Length - 1)
+            if (i < _message.Count - 1)
                 _music.clip = _sounds[0];
             else
                 _music.clip = _sounds[1];

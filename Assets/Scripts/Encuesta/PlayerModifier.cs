@@ -2,17 +2,13 @@
 
 public class PlayerModifier : MonoBehaviour
 {
-    public GameObject _transition;
-    private Transition _script;
-
-    public void StartGame(string sceneName)
+    public string _sceneName;
+    public void StartGame(GameObject fadeOut)
     {
-        GameObject fade = Instantiate(_transition, transform) as GameObject;
-        _script = fade.GetComponent<Transition>();
-        _script._isFirst = false;
-        _script._sceneName = sceneName;
+        GameObject fade = Instantiate(fadeOut, transform) as GameObject;
+        fade.GetComponent<FadeOut>()._sceneName = _sceneName;
+        Destroy(this);
     }
-
     public void SetIconSelection(int buttonNum, GameObject icon, Transform section)
     {
         for (int i = 1; i < section.childCount; i++)

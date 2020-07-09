@@ -4,21 +4,16 @@ public class EndGame : MonoBehaviour
 {
     public GameObject _fade;
     private GameObject _cam;
-    public WinCondition _win;
-    private bool _endGame;
+    private WinCondition _win;
 
     private void Start()
     {
         _cam = GameObject.FindGameObjectWithTag("MainCamera").gameObject;
-    }
-    private void Update()
-    {
-        if (_endGame)
-            Instantiate(_fade, _cam.transform);
+        _win = GameObject.FindGameObjectWithTag("WinCondition").GetComponent<WinCondition>();
     }
     private void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("Player") && _win._answers.Count >= 8)
-            _endGame = true;
+            Instantiate(_fade, _cam.transform);
     }
 }

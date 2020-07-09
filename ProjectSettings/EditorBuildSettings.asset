@@ -6,6 +6,9 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Scenes/Descuento.unity
+    guid: 7776085da5aea0c4ca15a92b40714931
+  - enabled: 1
     path: Assets/Scenes/Encuesta.unity
     guid: bb17aae6da302f647820277e5d831c1a
   - enabled: 1

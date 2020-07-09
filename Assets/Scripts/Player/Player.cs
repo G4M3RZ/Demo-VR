@@ -67,13 +67,12 @@ public class Player : MonoBehaviour
     }
     void StopDetection(Vector3 playerPos)
     {
+        RaycastHit hitInfo;
         Ray front = new Ray(playerPos, transform.forward * _rayForward);
         Ray down = new Ray(playerPos, transform.up * -_rayDown);
-        
-        RaycastHit hitInfo;
 
-        Debug.DrawLine(front.origin, front.origin + front.direction * _rayForward, Color.red);
-        Debug.DrawLine(down.origin, down.origin + down.direction * _rayDown, Color.red);
+        /*Debug.DrawLine(front.origin, front.origin + front.direction * _rayForward, Color.red);
+        Debug.DrawLine(down.origin, down.origin + down.direction * _rayDown, Color.red);*/
 
         if (Physics.Raycast(front, out hitInfo, _rayForward, _detect) || !Physics.Raycast(down, out hitInfo, _rayDown, _detect))
             _stopCar = true;

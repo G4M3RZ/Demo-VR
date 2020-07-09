@@ -1,41 +1,27 @@
-﻿using UnityEngine;
-using UnityEngine.SceneManagement;
-using UnityEngine.UI;
+﻿using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
 
 public class Transition : MonoBehaviour
 {
-    public bool _isFirst;
-    [Range(0, 1)]
-    public float _velocity;
-    private float _alpha;
-    private Material _panel;
-
+    [Range(0,5)]
+    public float _timeToWait;
+    public List<GameObject> _fades;
     public string _sceneName;
 
-    private void Start()
+    private void Awake()
     {
-        _panel = GetComponent<Image>().material;
-        _alpha = (_isFirst) ? _alpha = 1 : _alpha = 0;
-        _panel.color = new Color(0, 0, 0, _alpha);
+        StartCoroutine("FadeController");
     }
-
-    private void Update()
+    IEnumerator FadeController()
     {
-        _panel.color = new Color(0, 0, 0, _alpha);
+        Instantiate(_fades[0], transform);
+        
+        yield return new WaitForSeconds(_timeToWait);
+        
+        GameObject fadeOut = Instantiate(_fades[1], transform) as GameObject;
+        fadeOut.GetComponent<FadeOut>()._sceneName = _sceneName;
 
-        if (_isFirst)
-        {
-            _alpha = (_alpha > 0) ? _alpha -= Time.deltaTime * _velocity : _alpha = 0;
-
-            if (_alpha == 0)
-                _isFirst = false;
-        }
-        else
-        {
-            _alpha = (_alpha < 1) ? _alpha += Time.deltaTime * _velocity : _alpha = 1;
-
-            if (_alpha == 1)
-                SceneManager.LoadScene(_sceneName);
-        }
+        Destroy(this);
     }
 }

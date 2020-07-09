@@ -11,14 +11,12 @@ public class WinCondition : MonoBehaviour
     }
     private void Update()
     {
-        if (transform.childCount == 0)
+        if (_answers.Count >= 8)
         {
             PlayerPrefs.SetInt("Descount", 1);
             PlayerPrefs.Save();
             //Enviar Informacion
 
-            //Si la informacion se manda:
-            Destroy(this.gameObject);
         }
     }
 }
