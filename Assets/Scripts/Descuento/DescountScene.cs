@@ -1,18 +1,18 @@
 ﻿using UnityEngine;
-using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class DescountScene : MonoBehaviour
 {
     public string _sceneName;
-    private Button _descButton;
-    private bool _descActive, _play;
+    private int _descActive;
+    private bool _play;
     private void Awake()
     {
-        _descButton = transform.GetChild(2).GetComponent<Button>();
-        _descActive = (PlayerPrefs.GetInt("Descount") == 1) ? _descActive = true : _descActive = false;
-        _descButton.interactable = _descActive;
-    }
+        _descActive = PlayerPrefs.GetInt("Descount");
 
+        if (_descActive == 0)
+            SceneManager.LoadScene(_sceneName);
+    }
     public void NewGame(GameObject prefabFade)
     {
         if (!_play)

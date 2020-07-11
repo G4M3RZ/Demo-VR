@@ -829,7 +829,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 0
+  m_Interactable: 1
   m_TargetGraphic: {fileID: 1893318271}
   m_OnClick:
     m_PersistentCalls:
@@ -1051,11 +1051,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: FadeIn
       objectReference: {fileID: 0}
-    - target: {fileID: 5768412440140694160, guid: e53bbc275c786fc4fbb368c5f670c31a,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
     - target: {fileID: 5768412440140694161, guid: e53bbc275c786fc4fbb368c5f670c31a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1094,7 +1089,7 @@ PrefabInstance:
     - target: {fileID: 5768412440140694161, guid: e53bbc275c786fc4fbb368c5f670c31a,
         type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 5768412440140694161, guid: e53bbc275c786fc4fbb368c5f670c31a,
         type: 3}

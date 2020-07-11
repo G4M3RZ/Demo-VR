@@ -3,15 +3,12 @@ using UnityEngine.UI;
 
 public class Descount : MonoBehaviour
 {
-    public Button _descButton;
-
     private Material _fade;
     private float _alpha;
     private bool _active;
 
     private void Awake()
     {
-        _descButton = GameObject.FindGameObjectWithTag("Canvas").transform.GetChild(2).GetComponent<Button>();
         _fade = GetComponent<Image>().material;
         _active = true;
         _alpha = 0;
@@ -34,13 +31,5 @@ public class Descount : MonoBehaviour
     public void QuitDescount()
     {
         _active = false;
-    }
-    public void RaceDescount()
-    {
-        PlayerPrefs.SetInt("Descount", 0);
-        PlayerPrefs.Save();
-        _descButton.interactable = false;
-
-        QuitDescount();
     }
 }

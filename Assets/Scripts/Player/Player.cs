@@ -1,5 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class Player : MonoBehaviour
@@ -17,15 +16,17 @@ public class Player : MonoBehaviour
     [HideInInspector]
     public float _currentSpeed;
     private bool _stopCar;
+    [HideInInspector]
+    public bool _endRace;
 
     private void Start()
     {
         _cam = GameObject.FindGameObjectWithTag("MainCamera").GetComponent<GetCamRot>();
         _wheels = new List<GameObject>();
+        
         for (int i = 0; i < transform.GetChild(0).GetChild(1).childCount; i++)
-        {
             _wheels.Add(transform.GetChild(0).GetChild(1).GetChild(i).gameObject);
-        }
+
         _rgb = GetComponent<Rigidbody>();
         _currentSpeed = 0;
     }
@@ -33,7 +34,7 @@ public class Player : MonoBehaviour
     {
         float carRot = Mathf.Clamp(-_cam._camRotZ, -_limitCarRot, _limitCarRot);
         SetRot(carRot * Time.deltaTime * 5, _wheelLimit * 3);
-        SetCarSpeed();
+        SetCarSpeed(_currentSpeed, 15);
         StopDetection(transform.position);
     }
     private void FixedUpdate()
@@ -58,12 +59,17 @@ public class Player : MonoBehaviour
             _wheels[i].transform.Rotate(0, 0, -_currentSpeed);
         }
     }
-    void SetCarSpeed()
+    void SetCarSpeed(float speed, float velocity)
     {
-        if (_stopCar)
-            _currentSpeed = (_currentSpeed > 0) ? _currentSpeed -= Time.deltaTime * 15 : _currentSpeed = 0;
+        if (!_endRace)
+        {
+            if (_stopCar)
+                _currentSpeed = (speed > 0) ? speed -= Time.deltaTime * velocity : speed = 0;
+            else
+                _currentSpeed = (speed < _carSpeed) ? speed += Time.deltaTime * (velocity / 3) : speed = _carSpeed;
+        }
         else
-            _currentSpeed = (_currentSpeed < _carSpeed) ? _currentSpeed += Time.deltaTime * 5 : _currentSpeed = _carSpeed;
+            _currentSpeed = (speed > 0) ? speed -= Time.deltaTime * velocity : speed = 0;
     }
     void StopDetection(Vector3 playerPos)
     {

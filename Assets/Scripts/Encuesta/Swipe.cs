@@ -28,7 +28,7 @@ public class Swipe : MonoBehaviour
             for (int i = 0; i < _panels.Count; i++)
             {
                 Vector2 pos = _panels[i].transform.localPosition;
-                pos = Vector2.Lerp(pos, _newPos[i], Time.deltaTime * _swipeSpeed);
+                pos = Vector2.Lerp(pos, _newPos[i], Time.fixedDeltaTime * _swipeSpeed);
                 _panels[i].transform.localPosition = pos;
             }
         }
