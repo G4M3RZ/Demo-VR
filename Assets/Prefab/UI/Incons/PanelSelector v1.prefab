@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 1539323832514943917}
   - component: {fileID: 1539323832514943918}
   m_Layer: 5
-  m_Name: PanelSelector
+  m_Name: PanelSelector v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -64,7 +64,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 21300000, guid: d285643277b822e4799d2940dc84fd19, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 8ed8b627a7ba3c24a9da417e76e0c61f, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
