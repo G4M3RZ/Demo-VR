@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     {
         float carRot = Mathf.Clamp(-_cam._camRotZ, -_limitCarRot, _limitCarRot);
         SetRot(carRot * Time.deltaTime * 5, _wheelLimit * 3);
-        SetCarSpeed(_currentSpeed, 15);
+        SetCarSpeed(_currentSpeed, 20);
         StopDetection(transform.position);
     }
     private void FixedUpdate()

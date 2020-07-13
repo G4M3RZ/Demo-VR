@@ -834,7 +834,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _question: "\xBFC\xF3mo calificar\xEDa al evento?"
   _anwsers:
-  - Sobresaliente
+  - Muy Bueno
   - Normal
   - Malo
   _colors:
