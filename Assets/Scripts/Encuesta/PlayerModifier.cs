@@ -3,6 +3,12 @@
 public class PlayerModifier : MonoBehaviour
 {
     public string _sceneName;
+    private AudioSource _selectEfect;
+
+    private void Awake()
+    {
+        _selectEfect = GetComponent<AudioSource>();
+    }
     public void StartGame(GameObject fadeOut)
     {
         GameObject fade = Instantiate(fadeOut, transform) as GameObject;
@@ -11,6 +17,8 @@ public class PlayerModifier : MonoBehaviour
     }
     public void SetIconSelection(int buttonNum, GameObject icon, Transform section)
     {
+        _selectEfect.Play();
+
         for (int i = 1; i < section.childCount; i++)
         {
             if (i != buttonNum)

@@ -55,7 +55,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f3fa814bb45e64e40a0f0ec85e7fa522, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _question: "\xBFVolver\xEDas a un evento de VR?"
+  _question: "\xBFVolver\xEDas a un evento de Realidad Virtual?"
   _anwsers:
   - Si
   - Depende
