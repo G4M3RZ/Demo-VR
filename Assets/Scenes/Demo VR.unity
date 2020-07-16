@@ -1004,7 +1004,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 1
-  MaxDistance: 500
+  MaxDistance: 3
   Pan2D: 0
   rolloffMode: 0
   BypassEffects: 0
@@ -2318,6 +2318,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7058230195512660519, guid: 4ba6d73ddbd77134bb191a219b8e13bb,
+        type: 3}
+      propertyPath: MaxDistance
+      value: 7
+      objectReference: {fileID: 0}
     - target: {fileID: 7058230195512660522, guid: 4ba6d73ddbd77134bb191a219b8e13bb,
         type: 3}
       propertyPath: m_AngularDrag
